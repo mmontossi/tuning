@@ -9,9 +9,16 @@ module Rails
         redirect_to path, { :flash => { type => (flash.is_a?(Array) ? flash : [flash]) } }
       end
 
-      def flash_errors(model)
+      def flash_errors(source)
         flash[:error] = [] unless flash[:error].is_a? Array
-        model.errors.full_messages.each { |error| flash[:error] << error }
+        case source
+        when String
+          flash[:error] << source
+        when Array
+          source.each { |error| flash[:errors] << error }
+        else
+          source.errors.full_messages.each { |error| flash[:error] << error }
+        end
       end
 
     end  
