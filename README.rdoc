@@ -12,10 +12,36 @@ Put this line in your Gemfile:
 Then bundle:
   $ bundle
 
-= Usage
+= Cache
 
-User redirect_with_flash to directly redirect with flash inside your controller:
+Use increment_cache_namespace if you're using memcache client and a namespace to invalidate a group of elements in your sweeper:
+  increment_cache_namespace :key
+
+= Error
+
+(This plugin will create an error method to force debug information on exceptions in development env)
+
+Use not_found method to show 404.html in your controller:
+  not_found
+
+Use forbidden method to show 422.html in your controller:
+  forbidden
+
+= Flash
+
+Use redirect_with_flash to directly redirect with flash inside your controller:
   redirect_with_flash home_path, :success, 'success message'
   
 Use flash_errors method to directly flash models errors inside your controller:
   flash_errors model
+
+= Haml
+
+Use conditional_tag if you want wrap content into some tag if certain condition it's true in your views:
+  - conditional_tag :h1, request.path == home_path do
+    %a#logo{ :href => home_path }= Home
+
+= Menu
+
+User active_menu? if you want to add an active class to some tag in your views:
+  %li{ :class => active_menu?(some_path) }
