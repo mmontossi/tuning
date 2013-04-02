@@ -14,7 +14,7 @@ Then bundle:
 
 = Cache
 
-Use increment_cache_namespace if you're using memcache client and a namespace to invalidate a group of elements in your sweeper:
+Use increment_cache_namespace if you're using memcache client and a namespace to invalidate in your sweeper:
   increment_cache_namespace :key
 
 = Error
