@@ -1,2 +1,4 @@
-module RailsContrib
+require 'rails/contrib'
+
+module Rails
 end
