@@ -1,3 +1,21 @@
-= RailsContrib
+{<img src="https://codeclimate.com/github/mattways/rails-contrib.png" />}[https://codeclimate.com/github/mattways/rails-contrib] {<img src="https://travis-ci.org/mattways/rails-contrib.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/rails-contrib] {<img src="https://gemnasium.com/mattways/rails-contrib.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/rails-contrib]
 
-This project rocks and uses MIT-LICENSE.
+= Rails Contrib
+
+Adds contributions to the core of Rails.
+
+= Install
+
+Put this line in your Gemfile:
+  gem 'rails-contrib'
+  
+Then bundle:
+  $ bundle
+
+= Usage
+
+User redirect_with_flash to directly redirect with flash inside your controller:
+  redirect_with_flash home_path, :success, 'success message'
+  
+Use flash_errors method to directly flash models errors inside your controller:
+  flash_errors model
