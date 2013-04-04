@@ -8,7 +8,7 @@ class CacheTest < ActiveSupport::TestCase
     assert @instance.respond_to?(:increment_cache_namespace)
   end
 
-  private
+  protected
 
   def set_instance
     @instance = ActionController::Caching::Sweeper.instance

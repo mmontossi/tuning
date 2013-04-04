@@ -8,7 +8,7 @@ class MenuTest < ActiveSupport::TestCase
     assert @instance.respond_to?(:active_menu?)
   end
 
-  private
+  protected
 
   def set_instance
     @instance = ActionView::Base.new

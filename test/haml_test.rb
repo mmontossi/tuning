@@ -8,7 +8,7 @@ class HamlTest < ActiveSupport::TestCase
     assert @instance.respond_to?(:conditional_tag)
   end
 
-  private
+  protected
 
   def set_instance
     @instance = ActionView::Base.new

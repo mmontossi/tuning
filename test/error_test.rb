@@ -12,7 +12,7 @@ class ErrorTest < ActiveSupport::TestCase
     assert @instance.respond_to?(:forbidden)
   end
 
-  private
+  protected
 
   def set_instance
     @instance = ApplicationController.new

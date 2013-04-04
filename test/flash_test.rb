@@ -12,7 +12,7 @@ class FlashTest < ActiveSupport::TestCase
     assert @instance.respond_to?(:flash_errors)
   end
 
-  private
+  protected
 
   def set_instance
     @instance = ApplicationController.new
