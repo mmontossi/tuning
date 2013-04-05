@@ -24,5 +24,4 @@ Gem::Specification.new do |s|
   else
     s.add_development_dependency 'sqlite3'
   end
-  s.add_development_dependency 'haml'
 end

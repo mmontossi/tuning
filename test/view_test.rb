@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ActionVewBaseTest < ActiveSupport::TestCase
+class HelpersTest < ActiveSupport::TestCase
 
   setup :set_instance 
 

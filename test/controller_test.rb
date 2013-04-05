@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ActionControllerBaseTest < ActiveSupport::TestCase
+class ControllerTest < ActiveSupport::TestCase
 
   setup :set_instance
 

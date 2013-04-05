@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ActionControllerCachingSweeperTest < ActiveSupport::TestCase
+class ViewTest < ActiveSupport::TestCase
 
   setup :set_instance
 
