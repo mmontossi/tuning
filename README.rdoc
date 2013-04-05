@@ -1,4 +1,4 @@
-{<img src="https://codeclimate.com/github/mattways/rails-contrib.png" />}[https://codeclimate.com/github/mattways/rails-contrib] {<img src="https://travis-ci.org/mattways/rails-contrib.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/rails-contrib] {<img src="https://gemnasium.com/mattways/rails-contrib.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/rails-contrib]
+{<img src="https://codeclimate.com/github/mattways/rails_contrib.png" />}[https://codeclimate.com/github/mattways/rails_contrib] {<img src="https://travis-ci.org/mattways/rails_contrib.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/rails_contrib] {<img src="https://gemnasium.com/mattways/rails_contrib.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/rails_contrib]
 
 = Rails Contrib
 
@@ -7,17 +7,17 @@ Adds contributions to the core of Rails.
 = Install
 
 Put this line in your Gemfile:
-  gem 'rails-contrib'
+  gem 'rails_contrib'
   
 Then bundle:
   $ bundle
 
-= Cache
+= Sweepers
 
 Use increment_cache_namespace if you're using memcache client and a namespace to invalidate in your sweeper:
   increment_cache_namespace :key
 
-= Error
+= Controllers
 
 (This plugin will create an error method to force debug information on exceptions in development env)
 
@@ -27,21 +27,17 @@ Use not_found method to show 404.html in your controller:
 Use forbidden method to show 422.html in your controller:
   forbidden
 
-= Flash
-
 Use redirect_with_flash to directly redirect with flash inside your controller:
   redirect_with_flash home_path, :success, 'success message'
   
 Use flash_errors method to directly flash models errors inside your controller:
   flash_errors model
 
-= Haml
+= Views
 
 Use conditional_tag if you want wrap content into some tag if certain condition it's true in your views:
   - conditional_tag :h1, request.path == home_path do
     %a#logo{ :href => home_path }= Home
-
-= Menu
 
 User active_menu? if you want to add an active class to some tag in your views:
   %li{ :class => active_menu?(some_path) }

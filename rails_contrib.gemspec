@@ -1,15 +1,15 @@
 $:.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
-require 'rails/contrib/version'
+require 'rails_contrib/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'rails-contrib'
-  s.version     = Rails::Contrib::VERSION
+  s.name        = 'rails_contrib'
+  s.version     = RailsContrib::VERSION
   s.authors     = ['Mattways']
   s.email       = ['contact@mattways.com']
-  s.homepage    = 'https://github.com/mattways/rails-contrib'
+  s.homepage    = 'https://github.com/mattways/rails_contrib'
   s.summary     = 'Contrib for Rails.'
   s.description = 'Adds contributions to the core of Rails.'
 

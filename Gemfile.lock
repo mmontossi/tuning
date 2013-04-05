@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails-contrib (0.0.1)
+    rails_contrib (0.0.2)
       rails (~> 3.2.8)
 
 GEM
@@ -97,5 +97,5 @@ PLATFORMS
 DEPENDENCIES
   haml
   jquery-rails
-  rails-contrib!
+  rails_contrib!
   sqlite3

@@ -1,0 +1,5 @@
+%div
+  = conditional_tag :h1, 'a' == 'b', :class => 'false' do
+    False
+  = conditional_tag :h1, 'a' == 'a', :class => 'true' do
+    True
