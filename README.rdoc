@@ -36,7 +36,7 @@ Use flash_errors method to directly flash models errors inside your controller:
 = Views
 
 Use conditional_tag if you want wrap content into some tag if certain condition it's true in your views:
-  - conditional_tag :h1, request.path == home_path do
+  = conditional_tag :h1, request.path == home_path do
     %a#logo{ :href => home_path }= Home
 
 User active_menu? if you want to add an active class to some tag in your views:
