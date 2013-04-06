@@ -4,7 +4,7 @@ class ViewTest < ActiveSupport::TestCase
 
   setup :set_instance
 
-  test 'should have not_found method' do
+  test "should have not_found method" do
     assert @instance.respond_to?(:increment_cache_namespace)
   end
 
