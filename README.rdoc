@@ -41,3 +41,12 @@ Use conditional_tag if you want wrap content into some tag if certain condition 
 
 User active_menu? if you want to add an active class to some tag in your views:
   %li{ :class => active_menu?(some_path) }
+
+The method submit_tag outputs a button with span inside:
+  <button name="commit" value="submit">
+    <span>Send</span>
+  </button>
+
+The method form_for by default uses request.fullpath path and post method:
+  <form action="fullpath" method="post">
+  </form>

@@ -1,0 +1,9 @@
+<div>
+  <%= submit_tag %>
+  <%= conditional_tag :h1, 'a' == 'b', :class => 'false' do %>
+    False
+  <% end %>
+  <%= conditional_tag :h1, 'a' == 'a', :class => 'true' do %>
+    True
+  <% end %>
+</div>
