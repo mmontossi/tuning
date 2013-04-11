@@ -46,7 +46,3 @@ The method submit_tag outputs a button with span inside:
   <button name="commit" value="submit">
     <span>Send</span>
   </button>
-
-The method form_for by default uses request.fullpath path and post method:
-  <form action="fullpath" method="post">
-  </form>
