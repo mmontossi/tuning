@@ -12,11 +12,6 @@ Put this line in your Gemfile:
 Then bundle:
   $ bundle
 
-= Sweepers
-
-Use increment_cache_namespace if you're using memcache client and a namespace to invalidate in your sweeper:
-  increment_cache_namespace :key
-
 = Controllers
 
 (This plugin will create an error method to force debug information on exceptions in development env)
