@@ -26,9 +26,16 @@ module RailsContrib
         render :file => Rails.root.join('public', '422.html'), :status => 422, :layout => false
       end
 
-      def redirect_with_flash(path, type, flash, params=nil)
-        path = (params.nil? ? path : (params[:back].present? ? params[:back] : path))
-        redirect_to path, { :flash => { type => (flash.is_a?(Array) ? flash : [flash]) } }
+      def redirect_with_flash(options, type, flash)
+        args = [options]
+        case flash
+        when String
+          flash = [flash]
+        when ActiveRecord::Base
+          flash = flash.errors.full_messages
+        end
+        flash = { :flash => { type => flash } } 
+        redirect_to *(args[0].is_a?(Hash) ? args[0].merge(flash) : args.push(flash))
       end
 
       def flash_errors(source)
@@ -38,7 +45,7 @@ module RailsContrib
           flash.now[:error] << source
         when Array
           source.each { |error| flash.now[:error] << error }
-        else
+        when ActiveRecord::Base
           source.errors.full_messages.each { |error| flash.now[:error] << error }
         end
       end
