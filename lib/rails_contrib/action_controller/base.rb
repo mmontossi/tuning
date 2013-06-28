@@ -28,10 +28,9 @@ module RailsContrib
 
       def redirect_with_flash(options, type, flash)
         args = [options]
-        case flash
-        when String
+        if flash.is_a? String
           flash = [flash]
-        when ActiveRecord::Base
+        elsif flash.respond_to? :errors
           flash = flash.errors.full_messages
         end
         flash = { :flash => { type => flash } } 
@@ -40,12 +39,11 @@ module RailsContrib
 
       def flash_errors(source)
         flash.now[:error] = [] unless flash.now[:error].is_a? Array
-        case source
-        when String
+        if source.is_a? String
           flash.now[:error] << source
-        when Array
+        elsif source.is_a? Array
           source.each { |error| flash.now[:error] << error }
-        when ActiveRecord::Base
+        elsif source.respond_to? :errors 
           source.errors.full_messages.each { |error| flash.now[:error] << error }
         end
       end
