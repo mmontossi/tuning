@@ -1,13 +1,10 @@
-module RailsContrib
+module Tuning
   module ActionController
     module Base
+      extend ActiveSupport::Concern
 
-      def self.included(base)
-        base.class_eval do
-          if Rails.env == 'development'
-            rescue_from Exception, :with => :error
-          end
-        end
+      included do
+        rescue_from Exception, with: :error if Rails.env == 'development'
       end
 
       protected
@@ -15,15 +12,15 @@ module RailsContrib
       def error(exception)
         logger.error exception.message
         exception.backtrace.each { |line| logger.error line }
-        render :file => Rails.root.join('public', '500.html'), :status => 500, :layout => false
+        render file: Rails.root.join('public', '500.html'), status: 500, layout: false
       end
 
       def not_found
-        render :file => Rails.root.join('public', '404.html'), :status => 404, :layout => false
+        render file: Rails.root.join('public', '404.html'), status: 404, layout: false
       end  
       
       def forbidden
-        render :file => Rails.root.join('public', '422.html'), :status => 422, :layout => false
+        render file: Rails.root.join('public', '422.html'), status: 422, layout: false
       end
 
       def redirect_with_flash(options, type, flash)
@@ -33,7 +30,7 @@ module RailsContrib
         elsif flash.respond_to? :errors
           flash = flash.errors.full_messages
         end
-        flash = { :flash => { type => flash } } 
+        flash = { flash: { type => flash } } 
         redirect_to *(args[0].is_a?(Hash) ? args[0].merge(flash) : args.push(flash))
       end
 

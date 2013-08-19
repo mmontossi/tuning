@@ -1,13 +1,13 @@
-{<img src="https://codeclimate.com/github/mattways/rails_contrib.png" />}[https://codeclimate.com/github/mattways/rails_contrib] {<img src="https://travis-ci.org/mattways/rails_contrib.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/rails_contrib] {<img src="https://gemnasium.com/mattways/rails_contrib.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/rails_contrib]
+{<img src="https://codeclimate.com/github/mattways/tuning.png" />}[https://codeclimate.com/github/mattways/tuning] {<img src="https://travis-ci.org/mattways/tuning.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/tuning] {<img src="https://gemnasium.com/mattways/tuning.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/tuning]
 
-= Rails Contrib
+= Tuning
 
-Adds contributions to the core of Rails.
+Common used tools extracted into a gem.
 
 = Install
 
 Put this line in your Gemfile:
-  gem 'rails_contrib'
+  gem 'tuning'
   
 Then bundle:
   $ bundle
@@ -31,11 +31,12 @@ Use flash_errors method to directly flash models errors inside your controller:
 = Views
 
 Use conditional_tag if you want wrap content into some tag if certain condition it's true in your views:
-  = conditional_tag :h1, request.path == home_path do
-    %a#logo{ :href => home_path }= Home
+  <%= conditional_tag :h1, request.path == home_path do %>
+    <%= link_to 'Home', home_path, id: 'logo' %>
+  <% end %>
 
 User active_menu? if you want to add an active class to some tag in your views:
-  %li{ :class => active_menu?(some_path) }
+  <li class="<%= active_menu? some_path %>"></li>
 
 The method submit_tag outputs a button with span inside:
   <button name="commit" value="submit">

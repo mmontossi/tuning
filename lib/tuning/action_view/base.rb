@@ -1,9 +1,10 @@
-module RailsContrib
+module Tuning
   module ActionView
     module Base
+      extend ActiveSupport::Concern
 
-      def self.included(base)
-        base.alias_method_chain :submit_tag, :button
+      included do
+        alias_method_chain :submit_tag, :button
       end
 
       def conditional_tag(tag, condition, options=nil, &block)
@@ -19,7 +20,7 @@ module RailsContrib
       end
 
       def submit_tag_with_button(value='Send', options={})
-        button_tag({ :type => 'submit', :name => 'commit' }.update(options)) { content_tag(:span, value) }
+        button_tag({ type: 'submit', name: 'commit' }.update(options)) { content_tag(:span, value) }
       end
       
     end

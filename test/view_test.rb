@@ -1,8 +1,10 @@
 require 'test_helper'
 
-class HelpersTest < ActiveSupport::TestCase
+class ViewTest < ActiveSupport::TestCase
 
-  setup :set_instance 
+  setup do
+    @instance = ActionView::Base.new
+  end
 
   test "should have conditional_tag method" do
     assert @instance.respond_to?(:conditional_tag)
@@ -10,12 +12,6 @@ class HelpersTest < ActiveSupport::TestCase
 
   test "should have active_menu? method" do
     assert @instance.respond_to?(:active_menu?)
-  end
-
-  protected
-
-  def set_instance
-    @instance = ActionView::Base.new
   end
 
 end
