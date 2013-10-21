@@ -7,8 +7,8 @@ module Tuning
         alias_method_chain :submit_tag, :button
       end
 
-      def conditional_tag(tag, condition, options=nil, &block)
-        condition ? content_tag(tag, options, &block) : capture(&block)
+      def content_tag_if(condition, name, options=nil, &block)
+        condition ? content_tag(name, options, &block) : capture(&block)
       end
 
       def active_menu?(path)

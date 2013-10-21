@@ -6,8 +6,8 @@ class ViewTest < ActiveSupport::TestCase
     @instance = ActionView::Base.new
   end
 
-  test "should have conditional_tag method" do
-    assert @instance.respond_to?(:conditional_tag)
+  test "should have contenta_tag_if method" do
+    assert @instance.respond_to?(:content_tag_if)
   end
 
   test "should have active_menu? method" do

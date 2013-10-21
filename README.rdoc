@@ -22,16 +22,10 @@ Use not_found method to show 404.html in your controller:
 Use forbidden method to show 422.html in your controller:
   forbidden
 
-Use redirect_with_flash to directly redirect with flash inside your controller:
-  redirect_with_flash home_path, :success, 'success message'
-  
-Use flash_errors method to directly flash models errors inside your controller:
-  flash_errors model
-
 = Views
 
-Use conditional_tag if you want wrap content into some tag if certain condition it's true in your views:
-  <%= conditional_tag :h1, request.path == home_path do %>
+Use content_tag_if if you want wrap content into some tag if certain condition it's true in your views:
+  <%= content_tag_if request.path == home_path, :h1 do %>
     <%= link_to 'Home', home_path, id: 'logo' %>
   <% end %>
 
