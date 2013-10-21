@@ -1,3 +1,7 @@
+=== NOTE: The helper conditional_tag has been renamed to content_tag_if and flash_errors and redirect_with_flash has been removed
+
+---
+
 {<img src="https://codeclimate.com/github/mattways/tuning.png" />}[https://codeclimate.com/github/mattways/tuning] {<img src="https://travis-ci.org/mattways/tuning.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/tuning] {<img src="https://gemnasium.com/mattways/tuning.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/tuning]
 
 = Tuning
