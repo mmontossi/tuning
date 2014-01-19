@@ -13,5 +13,9 @@ class ViewTest < ActiveSupport::TestCase
   test "should have active_menu? method" do
     assert @instance.respond_to?(:active_menu?)
   end
+  
+  test "should have set_meta method" do
+    assert @instance.respond_to?(:set_meta)
+  end
 
 end

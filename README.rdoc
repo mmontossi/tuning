@@ -1,7 +1,3 @@
-=== NOTE: The helper conditional_tag has been renamed to content_tag_if and flash_errors and redirect_with_flash has been removed
-
----
-
 {<img src="https://codeclimate.com/github/mattways/tuning.png" />}[https://codeclimate.com/github/mattways/tuning] {<img src="https://travis-ci.org/mattways/tuning.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/tuning] {<img src="https://gemnasium.com/mattways/tuning.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/tuning]
 
 = Tuning
@@ -20,11 +16,17 @@ Then bundle:
 
 (This plugin will create an error method to force debug information on exceptions in development env)
 
-Use not_found method to show 404.html in your controller:
+Use not_found method to respond with status 404 and show 404.html if format it's html in your controller:
   not_found
 
-Use forbidden method to show 422.html in your controller:
+Use unauthorized method to respond with status 401 and show 422.html if format it's html in your controller:
+  unauthorized
+
+Use forbidden method to respond with status 403 and show 422.html if format it's html in your controller:
   forbidden
+
+Use unprocessable_entity method to respond with status 422 and show 422.html if format it's html in your controller:
+  unprocessable_entity
 
 = Views
 
@@ -33,8 +35,11 @@ Use content_tag_if if you want wrap content into some tag if certain condition i
     <%= link_to 'Home', home_path, id: 'logo' %>
   <% end %>
 
-User active_menu? if you want to add an active class to some tag in your views:
-  <li class="<%= active_menu? some_path %>"></li>
+Use active_trail? if you want to check if some path is on active trail:
+  <li class="<%= 'active' if active_trail? some_path %>"></li>
+
+Use set_meta if you want to load the metadata from your locale yaml:
+  set_meta # .meta.title -> @meta_title, .meta.description -> @meta_description, .meta.keywords -> @meta_keywords
 
 The method submit_tag outputs a button with span inside:
   <button name="commit" value="submit">
