@@ -10,8 +10,8 @@ class ViewTest < ActiveSupport::TestCase
     assert @instance.respond_to?(:content_tag_if)
   end
 
-  test "should have active_menu? method" do
-    assert @instance.respond_to?(:active_menu?)
+  test "should have active_trail? method" do
+    assert @instance.respond_to?(:active_trail?)
   end
   
   test "should have set_meta method" do
