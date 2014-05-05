@@ -14,7 +14,10 @@ Then bundle:
 
 = Controllers
 
-(This plugin will create an error method to force debug information on exceptions in development env)
+(This plugin will call error method to force debug information on exceptions in development env)
+
+Use error method to respond with status 500 and show 500.html (if format it's html) in your controller:
+  error
 
 Use not_found method to respond with status 404 and show 404.html (if format it's html) in your controller:
   not_found
