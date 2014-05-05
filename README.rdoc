@@ -1,4 +1,4 @@
-{<img src="https://codeclimate.com/github/mattways/tuning.png" />}[https://codeclimate.com/github/mattways/tuning] {<img src="https://travis-ci.org/mattways/tuning.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/tuning] {<img src="https://gemnasium.com/mattways/tuning.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/tuning]
+{<img src="https://badge.fury.io/rb/tuning.png" alt="Gem Version" />}[http://badge.fury.io/rb/tuning] {<img src="https://codeclimate.com/github/museways/tuning.png" />}[https://codeclimate.com/github/museways/tuning] {<img src="https://travis-ci.org/museways/tuning.png?branch=master" alt="Build Status" />}[https://travis-ci.org/museways/tuning] {<img src="https://gemnasium.com/museways/tuning.png" alt="Dependency Status" />}[https://gemnasium.com/museways/tuning]
 
 = Tuning
 
