@@ -21,4 +21,4 @@ ActiveRecord::Base.establish_connection(config['test'])
 load(File.expand_path('../dummy/db/schema.rb', __FILE__))
 
 # Include helpers
-ActionView::TestCase.include Tuning::ActionView::Base
+ActionView::TestCase.send :include, Tuning::ActionView::Base
