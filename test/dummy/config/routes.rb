@@ -1,7 +1,5 @@
 Dummy::Application.routes.draw do
 
-  root 'pages#index'
-  
   get 'exception' => 'status#exception_action'
   get 'error' => 'status#error_action'
   get 'not_found' => 'status#not_found_action'
