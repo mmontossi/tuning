@@ -6,14 +6,11 @@ module Tuning
       included do
         alias_method_chain :submit_tag, :button
       end
-
-      def set_meta(*args)
-        options = args.extract_options!
-        @meta_title = t('.meta.title', options)
-        @meta_keywords = t('.meta.keywords', options)
-        @meta_description = t('.meta.description', options)
-      end
  
+      def seo_options(options)
+        @seo_options = options
+      end
+
       def active_trail?(path)
         (path == '/' && request.path == path) or request.path.start_with?(path)
       end

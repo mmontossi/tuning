@@ -14,7 +14,7 @@ Then bundle:
 
 = Controllers
 
-(This plugin will call error method to force debug information on exceptions in development env)
+(This gem will call error method to force debug information on exceptions in development env)
 
 Use error method to respond with status 500 and show 500.html (if format it's html) in your controller:
   error
@@ -33,6 +33,11 @@ Use unprocessable_entity method to respond with status 422 and show 422.html (if
 
 = Views
 
+(This gem will set @title, @description and @keywords using lazy loaders like t('.title'))
+
+Use seo_options to customize the options of the title, description and keywords:
+  <% seo_options name: @record.name %>
+
 Use content_tag_if if you want wrap content into some tag if certain condition it's true:
   <%= content_tag_if request.path == home_path, :h1 do %>
     <%= link_to 'Home', home_path, id: 'logo' %>
@@ -40,9 +45,6 @@ Use content_tag_if if you want wrap content into some tag if certain condition i
 
 Use active_trail? if you want to check if some path is on active trail:
   <li class="<%= 'active' if active_trail? some_path %>"></li>
-
-Use set_meta if you want to load the metadata from your locale yaml:
-  set_meta # .meta.title -> @meta_title, .meta.description -> @meta_description, .meta.keywords -> @meta_keywords
 
 The method submit_tag outputs a button with span inside:
   <button name="commit" value="submit">

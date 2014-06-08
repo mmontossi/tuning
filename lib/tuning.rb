@@ -1,5 +1,6 @@
 require 'tuning/action_controller/base'
 require 'tuning/action_view/base'
+require 'tuning/action_view/template'
 require 'tuning/railtie'
 require 'tuning/version'
 

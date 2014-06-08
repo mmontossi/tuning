@@ -1,12 +1,10 @@
 en:
   pages:
     index:
-      meta:
-        title: 'index title'
-        description: 'index description'
-        keywords: 'index keywords'
+      title: 'index title'
+      description: 'index description'
+      keywords: 'index keywords'
     other:
-      meta:
-        title: 'other %{name}'
-        description: 'other %{name}'
-        keywords: 'other %{name}'
+      title: 'other %{name}'
+      description: 'other %{name}'
+      keywords: 'other %{name}'

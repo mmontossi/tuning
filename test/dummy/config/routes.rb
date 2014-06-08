@@ -1,4 +1,6 @@
 Dummy::Application.routes.draw do
+
+  root 'pages#index'
   
   get 'exception' => 'status#exception_action'
   get 'error' => 'status#error_action'
