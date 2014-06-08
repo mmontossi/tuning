@@ -12,6 +12,10 @@ class SeoTest < ActionView::TestCase
     assert_select 'title', I18n.t('pages.other.title', name: 'other')
     assert_select "meta[content='#{I18n.t('pages.other.description', name: 'other')}']"
     assert_select "meta[content='#{I18n.t('pages.other.keywords', name: 'other')}']"
+    
+    render template: 'pages/empty', layout: 'layouts/application'
+    assert_select 'title', ''
+    assert_select "meta[content='']", 2
   end
 
 end

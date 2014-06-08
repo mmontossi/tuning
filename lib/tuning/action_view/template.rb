@@ -14,7 +14,7 @@ module Tuning
         else
           format = mime_type.symbol
         end
-        if format == :html and virtual_path
+        if format == :html and virtual_path and virtual_path.split('/').last.first != '_' and virtual_path.split('/').first != 'layouts'
           %w(title description keywords).each do |tag|
             options = (view.instance_variable_get(:@seo_options) || {}).merge(default: '')
             content = I18n.t("#{virtual_path.gsub('/', '.')}.#{tag}", options)
