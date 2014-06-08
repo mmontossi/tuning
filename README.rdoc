@@ -1,5 +1,9 @@
 {<img src="https://badge.fury.io/rb/tuning.png" alt="Gem Version" />}[http://badge.fury.io/rb/tuning] {<img src="https://codeclimate.com/github/museways/tuning.png" />}[https://codeclimate.com/github/museways/tuning] {<img src="https://travis-ci.org/museways/tuning.png?branch=master" alt="Build Status" />}[https://travis-ci.org/museways/tuning] {<img src="https://gemnasium.com/museways/tuning.png" alt="Dependency Status" />}[https://gemnasium.com/museways/tuning]
 
+=== NOTE: From version 0.2.0 and above the seo handing change, please see below.
+
+---
+
 = Tuning
 
 Common used tools extracted into a gem.
