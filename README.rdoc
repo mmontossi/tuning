@@ -14,26 +14,24 @@ Then bundle:
 
 = Controllers
 
-(This gem will call error method to force debug information on exceptions in development env)
-
 Use error method to respond with status 500 and show 500.html (if format it's html) in your controller:
   error
 
-Use not_found method to respond with status 404 and show 404.html (if format it's html) in your controller:
+Use not_found to respond with status 404 and show 404.html (if format it's html) in your controller:
   not_found
 
-Use unauthorized method to respond with status 401 and show 422.html (if format it's html) in your controller:
+Use unauthorized to respond with status 401 and show 422.html (if format it's html) in your controller:
   unauthorized
 
-Use forbidden method to respond with status 403 and show 422.html (if format it's html) in your controller:
+Use forbidden to respond with status 403 and show 422.html (if format it's html) in your controller:
   forbidden
 
-Use unprocessable_entity method to respond with status 422 and show 422.html (if format it's html) in your controller:
+Use unprocessable_entity to respond with status 422 and show 422.html (if format it's html) in your controller:
   unprocessable_entity
 
-= Views
+NOTE: If any exception is raised, error will be called to force debug information in development environment.
 
-(This gem will set @title, @description and @keywords using lazy loaders like t('.title'))
+= Views
 
 Use seo_options to customize the options of the title, description and keywords:
   <% seo_options name: @record.name %>
@@ -50,6 +48,8 @@ The method submit_tag outputs a button with span inside:
   <button name="commit" value="submit">
     <span>Send</span>
   </button>
+
+NOTE: For each template @title, @description and @keywords will be set using lazy translation loaders.
 
 = Credits
 
