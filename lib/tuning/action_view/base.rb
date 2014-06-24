@@ -6,7 +6,7 @@ module Tuning
       included do
         alias_method_chain :submit_tag, :button
       end
- 
+
       def seo_options(options)
         @seo_options = options
       end
@@ -22,7 +22,7 @@ module Tuning
       def submit_tag_with_button(value='Send', options={})
         button_tag({ type: 'submit', name: 'commit' }.update(options)) { content_tag(:span, value) }
       end
- 
+
     end
   end
 end

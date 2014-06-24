@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ['Museways']
   s.email       = ['hello@mattways.com']
   s.homepage    = 'https://github.com/museways/tuning'
-  s.summary     = 'Tuning for Rails.'
-  s.description = 'Common used tools extracted into a gem.'
+  s.summary     = 'Tuning for rails.'
+  s.description = 'Common tools used in rails extracted into a gem.'
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']

@@ -1,18 +1,14 @@
-{<img src="https://badge.fury.io/rb/tuning.png" alt="Gem Version" />}[http://badge.fury.io/rb/tuning] {<img src="https://codeclimate.com/github/museways/tuning.png" />}[https://codeclimate.com/github/museways/tuning] {<img src="https://travis-ci.org/museways/tuning.png?branch=master" alt="Build Status" />}[https://travis-ci.org/museways/tuning] {<img src="https://gemnasium.com/museways/tuning.png" alt="Dependency Status" />}[https://gemnasium.com/museways/tuning]
-
-=== NOTE: From version 0.2.0 and above the seo handling change, please see below.
-
----
+{<img src="https://badge.fury.io/rb/tuning.png" alt="Gem Version" />}[http://badge.fury.io/rb/tuning] {<img src="https://codeclimate.com/github/museways/tuning.png" />}[https://codeclimate.com/github/museways/tuning] {<img src="https://travis-ci.org/museways/tuning.png?branch=master" alt="Build Status" />}[https://travis-ci.org/museways/tuning]
 
 = Tuning
 
-Common used tools extracted into a gem.
+Common tools used in rails extracted into a gem.
 
 = Install
 
 Put this line in your Gemfile:
   gem 'tuning'
-  
+
 Then bundle:
   $ bundle
 
@@ -54,3 +50,11 @@ The method submit_tag outputs a button with span inside:
   <button name="commit" value="submit">
     <span>Send</span>
   </button>
+
+= Credits
+
+This gem is maintained and funded by museways[http://museways.com].
+
+= License
+
+It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.

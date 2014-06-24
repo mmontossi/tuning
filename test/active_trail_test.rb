@@ -2,13 +2,13 @@ require 'test_helper'
 
 class ActiveTrailTest < ActionView::TestCase
 
-  test "should return true if path is in active trail" do
+  test "return true if path is in active trail" do
     set_path '/some-path/other-path'
     assert active_trail?('/')
     assert active_trail?('/some-path')
   end
 
-  test "should return true if path is the same as active trail" do
+  test "return true if path is the same as active trail" do
     set_path '/'
     assert active_trail?('/')
 
@@ -16,7 +16,7 @@ class ActiveTrailTest < ActionView::TestCase
     assert active_trail?('/some-path')
   end
 
-  test "should return false if path is not in active trail" do
+  test "return false if path is not in active trail" do
     set_path '/'
     assert !active_trail?('/some-path')
 
