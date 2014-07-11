@@ -18,7 +18,7 @@ module Tuning
           if virtual_path.split('/').first == 'layouts'
             %w(title description keywords seo_options).each do |tag|
               if view.instance_variable_defined? :"@#{tag}" 
-                view.remove_instance_variable :"@#{tag}"
+                view.send :remove_instance_variable, :"@#{tag}"
               end
             end
           else
