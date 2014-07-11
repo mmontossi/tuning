@@ -14,11 +14,21 @@ module Tuning
         else
           format = mime_type.symbol
         end
-        if format == :html and virtual_path and virtual_path.split('/').last.first != '_' and virtual_path.split('/').first != 'layouts'
-          %w(title description keywords).each do |tag|
-            options = (view.instance_variable_get(:@seo_options) || {}).merge(default: '')
-            content = I18n.t("#{virtual_path.gsub('/', '.')}.#{tag}", options)
-            view.instance_variable_set :"@#{tag}", content
+        if format == :html and virtual_path and virtual_path.split('/').last.first != '_'
+          if virtual_path.split('/').first == 'layouts'
+            %w(title description keywords seo_options).each do |tag|
+              if view.instance_variable_defined? :"@#{tag}" 
+                view.remove_instance_variable :"@#{tag}"
+              end
+            end
+          else
+            %w(title description keywords).each do |tag|
+              unless view.instance_variable_defined? :"@#{tag}" 
+                options = (view.instance_variable_get(:@seo_options) || {}).merge(default: '')
+                content = I18n.t("#{virtual_path.gsub('/', '.')}.#{tag}", options)
+                view.instance_variable_set :"@#{tag}", content
+              end
+            end
           end
         end
         output

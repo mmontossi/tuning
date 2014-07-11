@@ -4,7 +4,7 @@ en:
       title: 'index title'
       description: 'index description'
       keywords: 'index keywords'
-    other:
-      title: 'other %{name}'
-      description: 'other %{name}'
-      keywords: 'other %{name}'
+    variable:
+      title: 'variable %{name}'
+      description: 'variable %{name}'
+      keywords: 'variable %{name}'
