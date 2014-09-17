@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StatusTest < ActionDispatch::IntegrationTest
 
-  test "respond with status 500 if error is call" do
+  test 'respond with status 500 if error is call' do
     get 'error.json'
     assert_response 500
     assert_equal ' ', response.body
@@ -12,7 +12,7 @@ class StatusTest < ActionDispatch::IntegrationTest
     assert_equal File.read(Rails.root.join('public', '500.html')), response.body
   end
 
-  test "respond with status 404 if not_found is call" do
+  test 'respond with status 404 if not_found is call' do
     get 'not_found.json'
     assert_response 404
     assert_equal ' ', response.body
@@ -22,7 +22,7 @@ class StatusTest < ActionDispatch::IntegrationTest
     assert_equal File.read(Rails.root.join('public', '404.html')), response.body
   end
 
-  test "respond with status 401 if unauthorized is call" do
+  test 'respond with status 401 if unauthorized is call' do
     get 'unauthorized.json'
     assert_response 401
     assert_equal ' ', response.body
@@ -32,7 +32,7 @@ class StatusTest < ActionDispatch::IntegrationTest
     assert_equal File.read(Rails.root.join('public', '422.html')), response.body
   end
 
-  test "respond with status 403 if forbidden is call" do
+  test 'respond with status 403 if forbidden is call' do
     get 'forbidden.json'
     assert_response 403
     assert_equal ' ', response.body
@@ -42,7 +42,7 @@ class StatusTest < ActionDispatch::IntegrationTest
     assert_equal File.read(Rails.root.join('public', '422.html')), response.body
   end
 
-  test "respond with status 422 if unprocessable_entity is call" do
+  test 'respond with status 422 if unprocessable_entity is call' do
     get 'unprocessable_entity.json'
     assert_response 422
     assert_equal ' ', response.body

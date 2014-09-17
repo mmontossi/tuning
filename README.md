@@ -1,60 +1,81 @@
-{<img src="https://badge.fury.io/rb/tuning.png" alt="Gem Version" />}[http://badge.fury.io/rb/tuning] {<img src="https://codeclimate.com/github/museways/tuning.png" />}[https://codeclimate.com/github/museways/tuning] {<img src="https://travis-ci.org/museways/tuning.png?branch=master" alt="Build Status" />}[https://travis-ci.org/museways/tuning]
+[![Gem Version](https://badge.fury.io/rb/tuning.svg)](http://badge.fury.io/rb/tuning) [![Code Climate](https://codeclimate.com/github/museways/tuning/badges/gpa.svg)](https://codeclimate.com/github/museways/tuning) [![Build Status](https://travis-ci.org/museways/tuning.svg?branch=0.2.3)](https://travis-ci.org/museways/tuning)
 
-= Tuning
+# Tuning
 
 Common tools used in rails extracted into a gem.
 
-= Install
+## Install
 
 Put this line in your Gemfile:
-  gem 'tuning'
+```ruby
+gem 'tuning'
+```
 
 Then bundle:
-  $ bundle
 
-= Controllers
+    $ bundle
+
+## Controllers
 
 Use error method to respond with status 500 and show 500.html (if format it's html) in your controller:
-  error
+```ruby
+error
+```
 
 Use not_found to respond with status 404 and show 404.html (if format it's html) in your controller:
-  not_found
+```ruby
+not_found
+``` 
 
 Use unauthorized to respond with status 401 and show 422.html (if format it's html) in your controller:
-  unauthorized
+```ruby
+unauthorized
+```
 
 Use forbidden to respond with status 403 and show 422.html (if format it's html) in your controller:
-  forbidden
+```ruby
+forbidden
+```
 
 Use unprocessable_entity to respond with status 422 and show 422.html (if format it's html) in your controller:
-  unprocessable_entity
+```ruby
+unprocessable_entity
+```
 
 NOTE: If any exception is raised, error will be called to force debug information in development environment.
 
-= Views
+## Views
 
 Use seo_options to customize the options of the title, description and keywords:
-  <% seo_options name: @record.name %>
+```erb
+<% seo_options name: @record.name %>
+```
 
 Use content_tag_if if you want wrap content into some tag if certain condition it's true:
-  <%= content_tag_if request.path == home_path, :h1 do %>
-    <%= link_to 'Home', home_path, id: 'logo' %>
-  <% end %>
+```erb
+<%= content_tag_if request.path == home_path, :h1 do %>
+  <%= link_to 'Home', home_path, id: 'logo' %>
+<% end %>
+```
 
 Use active_trail? if you want to check if some path is on active trail:
-  <li class="<%= 'active' if active_trail? some_path %>"></li>
+```erb
+<li class="<%= 'active' if active_trail? some_path %>"></li>
+```
 
 The method submit_tag outputs a button with span inside:
-  <button name="commit" value="submit">
-    <span>Send</span>
-  </button>
+```html
+<button name="commit" value="submit">
+  <span>Send</span>
+</button>
+```
 
 NOTE: For each template @title, @description and @keywords will be set using lazy translation loaders.
 
-= Credits
+## Credits
 
-This gem is maintained and funded by museways[http://museways.com].
+This gem is maintained and funded by [museways](http://museways.com).
 
-= License
+## License
 
 It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
