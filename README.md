@@ -71,7 +71,7 @@ The method submit_tag outputs a button with span inside:
 </button>
 ```
 
-NOTE: For each template @title, @description and @keywords will be set using lazy translation loaders.
+NOTE: For each template @title, @description and @keywords will be set using lazy loaders.
 
 ## Credits
 
