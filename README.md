@@ -12,8 +12,9 @@ gem 'tuning'
 ```
 
 Then bundle:
-
-    $ bundle
+```
+$ bundle
+```
 
 ## Controllers
 
@@ -25,7 +26,7 @@ error
 Use not_found to respond with status 404 and show 404.html (if format it's html) in your controller:
 ```ruby
 not_found
-``` 
+```
 
 Use unauthorized to respond with status 401 and show 422.html (if format it's html) in your controller:
 ```ruby
