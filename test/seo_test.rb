@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SeoTest < ActionView::TestCase
 
-  test 'populate meta using the path of the template as key' do
+  test 'keywords and descriptions' do
     render template: 'pages/index', layout: 'layouts/application'
     assert_select 'title', I18n.t('pages.index.title')
     assert_select %Q{meta[content="#{I18n.t('pages.index.description')}"]}
