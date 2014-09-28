@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/tuning.svg)](http://badge.fury.io/rb/tuning) [![Code Climate](https://codeclimate.com/github/museways/tuning/badges/gpa.svg)](https://codeclimate.com/github/museways/tuning) [![Build Status](https://travis-ci.org/museways/tuning.svg?branch=0.2.3)](https://travis-ci.org/museways/tuning)
+[![Gem Version](https://badge.fury.io/rb/tuning.svg)](http://badge.fury.io/rb/tuning) [![Code Climate](https://codeclimate.com/github/museways/tuning/badges/gpa.svg)](https://codeclimate.com/github/museways/tuning) [![Build Status](https://travis-ci.org/museways/tuning.svg?branch=0.2.3)](https://travis-ci.org/museways/tuning) [![Dependency Status](https://gemnasium.com/museways/tuning.svg)](https://gemnasium.com/museways/tuning)
 
 # Tuning
 
