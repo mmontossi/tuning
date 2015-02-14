@@ -47,11 +47,6 @@ NOTE: If any exception is raised, error will be called to force debug informatio
 
 ## Views
 
-Use seo_options to customize the options of the title, description and keywords:
-```erb
-<% seo_options name: @record.name %>
-```
-
 Use content_tag_if if you want wrap content into some tag if certain condition it's true:
 ```erb
 <%= content_tag_if request.path == home_path, :h1 do %>
@@ -63,15 +58,6 @@ Use active_trail? if you want to check if some path is on active trail:
 ```erb
 <li class="<%= 'active' if active_trail? some_path %>"></li>
 ```
-
-The method submit_tag outputs a button with span inside:
-```html
-<button name="commit" value="submit">
-  <span>Send</span>
-</button>
-```
-
-NOTE: For each template @title, @description and @keywords will be set using lazy loaders.
 
 ## Credits
 
