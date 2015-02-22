@@ -3,10 +3,6 @@ module Tuning
     module Base
       extend ActiveSupport::Concern
 
-      included do
-        rescue_from Exception, with: :error if Rails.env.development?
-      end
-
       protected
 
       def error(exception=nil)

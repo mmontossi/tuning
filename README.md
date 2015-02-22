@@ -43,8 +43,6 @@ Use unprocessable_entity to respond with status 422 and show 422.html (if format
 unprocessable_entity
 ```
 
-NOTE: If any exception is raised, error will be called to force debug information in development.
-
 ## Views
 
 Use content_tag_if if you want wrap content into some tag if certain condition it's true:

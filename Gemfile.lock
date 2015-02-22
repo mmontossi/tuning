@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tuning (0.2.4)
+    tuning (0.3.0)
       rails (>= 4.0.0, <= 4.2.0)
 
 GEM
