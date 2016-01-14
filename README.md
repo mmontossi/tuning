@@ -1,4 +1,7 @@
-[![Gem Version](https://badge.fury.io/rb/tuning.svg)](http://badge.fury.io/rb/tuning) [![Code Climate](https://codeclimate.com/github/museways/tuning/badges/gpa.svg)](https://codeclimate.com/github/museways/tuning) [![Build Status](https://travis-ci.org/museways/tuning.svg?branch=0.2.3)](https://travis-ci.org/museways/tuning) [![Dependency Status](https://gemnasium.com/museways/tuning.svg)](https://gemnasium.com/museways/tuning)
+[![Gem Version](https://badge.fury.io/rb/tuning.svg)](http://badge.fury.io/rb/tuning)
+[![Code Climate](https://codeclimate.com/github/mmontossi/tuning/badges/gpa.svg)](https://codeclimate.com/github/mmontossi/tuning)
+[![Build Status](https://travis-ci.org/mmontossi/tuning.svg)](https://travis-ci.org/mmontossi/tuning)
+[![Dependency Status](https://gemnasium.com/mmontossi/tuning.svg)](https://gemnasium.com/mmontossi/tuning)
 
 # Tuning
 
@@ -59,7 +62,7 @@ Use active_trail? if you want to check if some path is on active trail:
 
 ## Credits
 
-This gem is maintained and funded by [museways](http://museways.com).
+This gem is maintained and funded by [mmontossi](https://github.com/mmontossi).
 
 ## License
 

@@ -7,9 +7,9 @@ require 'tuning/version'
 Gem::Specification.new do |s|
   s.name        = 'tuning'
   s.version     = Tuning::VERSION
-  s.authors     = ['Museways']
-  s.email       = ['hello@mattways.com']
-  s.homepage    = 'https://github.com/museways/tuning'
+  s.authors     = ['mmontossi']
+  s.email       = ['mmontossi@buyin.io']
+  s.homepage    = 'https://github.com/mmontossi/tuning'
   s.summary     = 'Tuning for rails.'
   s.description = 'Common tools used in rails extracted into a gem.'
   s.license     = 'MIT'
