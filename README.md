@@ -109,8 +109,7 @@ end
 Count validator to express count messages instead of length messages on errors:
 ```ruby
 class Product < ActiveRecord::Base
-  validates_count_of :pictures, minimum: 1, maximum: 4
-  # Accepts comparitions: :minimum, :maximum, :in, :within
+  validates_count_of :pictures, minimum: 1, maximum: 4 # Or in/within: 1..4
 end
 ```
 
@@ -118,8 +117,7 @@ Time validator to validate Date/Time values:
 ```ruby
 class Schedule < ActiveRecord::Base
   validates_time_of :opens_at
-  validates_time_of :closes_at, after: :opens_at
-  # Accepts comparitions: :before, :after, :after_or_equal_to, and :before_or_equal_to
+  validates_time_of :closes_at, after: :opens_at # Or before, after_or_equal_to or before_or_equal_to
 end
 ```
 
