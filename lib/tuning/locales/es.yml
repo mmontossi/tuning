@@ -1,0 +1,12 @@
+es:
+  errors:
+    messages:
+      too_easy: "es muy fácil"
+      too_many: "debe tener máximo %{count}"
+      too_few: "debe tener mínimo %{count}"
+      wrong_count: "debe tener %{count}"
+      not_a_time: "no es un tiempo"
+      after: "debe ser posterior a %{time}"
+      after_or_equal_to: "tiene que ser posterior o igual a %{time}"
+      before: "debe ser anterior a %{time}"
+      before_or_equal_to: "tiene que ser anterior o igual a %{time}"

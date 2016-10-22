@@ -19,12 +19,8 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.0.0'
 
-  s.add_dependency 'rails', (ENV['RAILS_VERSION'] ? "~> #{ENV['RAILS_VERSION']}" : ['>= 4.0.0', '< 4.3.0'])
+  s.add_dependency 'rails', ['>= 4.2.0', '< 4.3.0']
 
-  if RUBY_PLATFORM == 'java'
-    s.add_development_dependency 'activerecord-jdbcsqlite3-adapter', '~> 1.3'
-    s.add_development_dependency 'jruby-openssl', '~> 0.9'
-  else
-    s.add_development_dependency 'sqlite3', '~> 1.3'
-  end
+  s.add_development_dependency 'pg', '~> 0.18'
+  s.add_development_dependency 'mocha', '~> 1.1'
 end

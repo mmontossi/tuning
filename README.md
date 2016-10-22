@@ -19,33 +19,6 @@ Then bundle:
 $ bundle
 ```
 
-## Controllers
-
-Use error method to respond with status 500 and show 500.html (if format it's html):
-```ruby
-error
-```
-
-Use not_found to respond with status 404 and show 404.html (if format it's html):
-```ruby
-not_found
-```
-
-Use unauthorized to respond with status 401 and show 422.html (if format it's html):
-```ruby
-unauthorized
-```
-
-Use forbidden to respond with status 403 and show 422.html (if format it's html):
-```ruby
-forbidden
-```
-
-Use unprocessable_entity to respond with status 422 and show 422.html (if format it's html):
-```ruby
-unprocessable_entity
-```
-
 ## Views
 
 Use content_tag_if if you want wrap content into some tag if certain condition it's true:
