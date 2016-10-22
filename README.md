@@ -106,7 +106,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-Count validator to express count messages instead of length messages on errors:
+Count validator to express count messages instead of length messages:
 ```ruby
 class Product < ActiveRecord::Base
   validates_count_of :pictures, minimum: 1, maximum: 4 # Or in/within: 1..4
