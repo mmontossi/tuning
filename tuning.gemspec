@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = 'tuning'
   s.version     = Tuning::VERSION
   s.authors     = ['mmontossi']
-  s.email       = ['mmontossi@buyin.io']
+  s.email       = ['mmontossi@gmail.com']
   s.homepage    = 'https://github.com/mmontossi/tuning'
   s.summary     = 'Tuning for rails.'
   s.description = 'Common tools used in rails extracted into a gem.'

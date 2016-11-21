@@ -4,23 +4,9 @@ gem 'rails', ENV['RAILS']
 gem 'mocha', '~> 1.1'
 
 platforms :ruby do
-  case ENV['DB']
-  when 'mysql'
-    gem 'mysql2', '~> 0.3.18'
-  when 'postgres'
-    gem 'pg'
-  when 'sqlite'
-    gem 'sqlite3'
-  end
+  gem 'pg'
 end
 
 platforms :jruby do
-  case ENV['DB']
-  when 'mysql'
-    gem 'activerecord-jdbcmysql-adapter'
-  when 'postgres'
-    gem 'activerecord-jdbcpostgresql-adapter'
-  when 'sqlite'
-    gem 'activerecord-jdbcsqlite3-adapter'
-  end
+  gem 'activerecord-jdbcpostgresql-adapter'
 end
