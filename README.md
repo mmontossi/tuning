@@ -7,6 +7,13 @@
 
 Common tools used in rails extracted into a gem.
 
+## Why
+
+I did this gem to:
+
+- Make features I commonly need work nice together.
+- Have an extensible container to continue adding new general purpose tools.
+
 ## Install
 
 Put this line in your Gemfile:
