@@ -26,7 +26,9 @@ Then bundle:
 $ bundle
 ```
 
-## Controllers
+## Usage
+
+### Controllers
 
 New callbacks before, after, around render are available:
 ```ruby
@@ -51,7 +53,7 @@ class ProductsController < ApplicationController
 end
 ```
 
-## Mailers
+### Mailers
 
 Text email templates will normalize spaces and new lines like html:
 ```erb
@@ -69,7 +71,7 @@ Your order has been confirmed.
 Will be delivered right the way.
 ```
 
-## Views
+### Views
 
 New content_tag_if method to wrap content into some tag if certain condition it's true:
 ```erb
@@ -90,7 +92,7 @@ New extending method to extend layouts:
 <% end %>
 ```
 
-## Records
+### Records
 
 Empty strings will be nilify in the database to avoid sql errors or complex queries:
 ```ruby
@@ -104,7 +106,7 @@ New method validate is available to allow a more expressive syntax:
 record.validate # Same as valid?
 ```
 
-## Validations
+### Validations
 
 Complexity validator to avoid weak passwords:
 ```ruby
