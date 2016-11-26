@@ -108,21 +108,21 @@ record.validate # Same as valid?
 
 ### Validations
 
-Complexity validator to avoid weak passwords:
+New complexity validator to avoid weak passwords:
 ```ruby
 class User < ActiveRecord::Base
   validates_complexity_of :password
 end
 ```
 
-Count validator to express count messages instead of length messages:
+New count validator to express count messages instead of length messages:
 ```ruby
 class Product < ActiveRecord::Base
   validates_count_of :pictures, minimum: 1, maximum: 4 # Or in/within: 1..4
 end
 ```
 
-Time validator to validate Date/Time values:
+New time validator to validate Date/Time values:
 ```ruby
 class Schedule < ActiveRecord::Base
   validates_time_of :opens_at
