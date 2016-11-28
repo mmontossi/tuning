@@ -103,7 +103,7 @@ shop.name # Will be nil
 
 New method validate is available to allow a more expressive syntax:
 ```ruby
-record.validate # Same as valid?
+record.validate
 ```
 
 ### Validations
