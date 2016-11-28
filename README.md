@@ -115,18 +115,18 @@ class User < ActiveRecord::Base
 end
 ```
 
-New count validator to express count messages instead of length messages:
-```ruby
-class Product < ActiveRecord::Base
-  validates_count_of :pictures, minimum: 1, maximum: 4 # Or in/within: 1..4
-end
-```
-
-New time validator to validate Date/Time values:
+New time validator to validate Date/Time using after, after_or_equal_to, before or before_or_equal_to:
 ```ruby
 class Schedule < ActiveRecord::Base
   validates_time_of :opens_at
-  validates_time_of :closes_at, after: :opens_at # Or before, after_or_equal_to or before_or_equal_to
+  validates_time_of :closes_at, after: :opens_at
+end
+```
+
+New count validator to express count messages using minimum, maximum, in o within:
+```ruby
+class Product < ActiveRecord::Base
+  validates_count_of :pictures, minimum: 1, maximum: 4
 end
 ```
 
