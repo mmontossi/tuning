@@ -6,6 +6,7 @@ require 'tuning/validations/complexity'
 require 'tuning/validations/count'
 require 'tuning/validations/time'
 require 'tuning/railtie'
+require 'tuning/version'
 
 module Tuning
 end

@@ -1,7 +1,7 @@
 module Tuning
   class Railtie < Rails::Railtie
 
-    initializer :tuning do
+    initializer 'tuning.extensions' do
       ::ActionController::Base.include(
         Tuning::Extensions::ActionController::Base
       )

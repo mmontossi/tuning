@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HelpersTest < ActionView::TestCase
+class HelperTest < ActionView::TestCase
   include Tuning::Extensions::ActionView::Base
 
   test 'active trail' do

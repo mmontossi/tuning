@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ControllersTest < ActiveSupport::TestCase
+class ControllerTest < ActiveSupport::TestCase
 
   test 'render' do
     controller = ActionController::Base.new

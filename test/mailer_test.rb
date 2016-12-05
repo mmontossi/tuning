@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MailersTest < ActionMailer::TestCase
+class MailerTest < ActionMailer::TestCase
 
   test 'normalization' do
     email = UserMailer.invite('test@mail.com')

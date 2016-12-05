@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RecordsTest < ActiveSupport::TestCase
+class RecordTest < ActiveSupport::TestCase
 
   test 'nilify blanks' do
     user = User.new(name: '')

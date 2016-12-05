@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ValidationsTest < ActiveSupport::TestCase
+class ValidationTest < ActiveSupport::TestCase
 
   MODELS = [User, Session]
 
