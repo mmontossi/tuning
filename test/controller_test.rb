@@ -10,11 +10,12 @@ class ControllerTest < ActiveSupport::TestCase
 
   test 'callbacks' do
     controller = ActionController::Base
-    %i(before after around).each do |callback|
-      assert controller.respond_to?("#{callback}_render")
-      assert controller.respond_to?("append_#{callback}_render")
-      assert controller.respond_to?("prepend_#{callback}_render")
-      assert controller.respond_to?("skip_#{callback}_render")
+    %w(before after around).each do |callback|
+      ['', 'append_', 'prepend_', 'skip_'].each do |prefix|
+        assert_nothing_raised do
+          controller.send "#{prefix}#{callback}_render", :foo
+        end
+      end
     end
   end
 
