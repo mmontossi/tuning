@@ -92,6 +92,15 @@ New extending method to extend layouts:
 <% end %>
 ```
 
+### Template Handlers
+
+Ruby template handlers will automatically call to_json or to_xml:
+```ruby
+@users.map do |user|
+  user.slice :name
+end
+```
+
 ### Records
 
 Empty strings will be nilify in the database to avoid sql errors or complex queries:
