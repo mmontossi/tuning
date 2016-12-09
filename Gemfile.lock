@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tuning (4.0.0.1)
+    tuning (4.0.1.0)
       rails (>= 4.2.0, < 4.3.0)
 
 GEM
@@ -44,7 +44,6 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     builder (3.2.2)
-    byebug (9.0.6)
     concurrent-ruby (1.0.2)
     erubis (2.7.0)
     globalid (0.3.7)
@@ -110,7 +109,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
   mocha (~> 1.1)
   pg (~> 0.18)
   tuning!
