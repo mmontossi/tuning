@@ -141,6 +141,12 @@ end
 
 NOTE: Take a look at lib/tuning/locales to know the i18n keys.
 
+## Contributing
+
+Any issue, pull request, comment of any kind is more than welcome!
+
+I will mainly ensure compatibility to PostgreSQL, AWS, Redis, Elasticsearch, FreeBSD and Memcached. 
+
 ## Credits
 
 This gem is maintained and funded by [mmontossi](https://github.com/mmontossi).
