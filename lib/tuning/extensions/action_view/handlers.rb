@@ -7,19 +7,15 @@ module Tuning
         class Ruby
 
           def call(template)
-            <<-STRING
-              output = begin
-                #{template.source}
-              end
-              output#{suffix(template.type.symbol)}
-            STRING
-          end
-
-          private
-
-          def suffix(type)
-            if %i(json xml).include?(type)
-              ".to_#{type}"
+            if template.type.json?
+              <<-STRING
+                output = begin
+                  #{template.source}
+                end
+                output.to_json
+              STRING
+            else
+              template.source
             end
           end
 

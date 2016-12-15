@@ -13,7 +13,7 @@ module Tuning
 
         def nilify_blank_attributes
           attributes.each do |column, value|
-            if value.is_a? String and value.blank?
+            if value.is_a?(String) and value.blank?
               self[column] = nil
             end
           end

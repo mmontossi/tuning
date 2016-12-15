@@ -43,11 +43,11 @@ class ValidationTest < ActiveSupport::TestCase
     ) do |model|
       instance = model.new(list: [1, 2, 3])
       assert_not instance.valid?
-      assert instance.errors.added?(:list, :too_many)
+      assert instance.errors.added?(:list, :too_many, count: 2)
 
       instance = model.new(list: [])
       assert_not instance.valid?
-      assert instance.errors.added?(:list, :too_few)
+      assert instance.errors.added?(:list, :too_few, count: 1)
 
       instance = model.new(list: [1])
       assert instance.valid?
@@ -58,11 +58,11 @@ class ValidationTest < ActiveSupport::TestCase
     ) do |model|
       instance = model.new(list: [1, 2, 3])
       assert_not instance.valid?
-      assert instance.errors.added?(:list, :too_many)
+      assert instance.errors.added?(:list, :too_many, count: 2)
 
       instance = model.new(list: [])
       assert_not instance.valid?
-      assert instance.errors.added?(:list, :too_few)
+      assert instance.errors.added?(:list, :too_few, count: 1)
 
       instance = model.new(list: [1])
       assert instance.valid?
@@ -73,7 +73,7 @@ class ValidationTest < ActiveSupport::TestCase
     ) do |model|
       instance = model.new(list: [1, 2, 3])
       assert_not instance.valid?
-      assert instance.errors.added?(:list, :too_many)
+      assert instance.errors.added?(:list, :too_many, count: 2)
 
       instance = model.new(list: [])
       assert instance.valid?
@@ -84,7 +84,7 @@ class ValidationTest < ActiveSupport::TestCase
     ) do |model|
       instance = model.new(list: [])
       assert_not instance.valid?
-      assert instance.errors.added?(:list, :too_few)
+      assert instance.errors.added?(:list, :too_few, count: 1)
 
       instance = model.new(list: [1])
       assert instance.valid?
@@ -105,11 +105,11 @@ class ValidationTest < ActiveSupport::TestCase
     ) do |model|
       instance = model.new(created_at: Date.today)
       assert_not instance.valid?
-      assert instance.errors.added?(:created_at, :before)
+      assert instance.errors.added?(:created_at, :before, time: I18n.l(Date.today))
 
       instance = model.new(created_at: (Time.now + 1.day))
       assert_not instance.valid?
-      assert instance.errors.added?(:created_at, :before)
+      assert instance.errors.added?(:created_at, :before, time: I18n.l(Date.today))
 
       instance = model.new(created_at: (Date.today - 1.day))
       assert instance.valid?
@@ -120,7 +120,7 @@ class ValidationTest < ActiveSupport::TestCase
     ) do |model|
       instance = model.new(created_at: (Time.now + 1.day))
       assert_not instance.valid?
-      assert instance.errors.added?(:created_at, :before_or_equal_to)
+      assert instance.errors.added?(:created_at, :before_or_equal_to, time: I18n.l(Date.today))
 
       instance = model.new(created_at: Date.today)
       assert instance.valid?
@@ -134,11 +134,11 @@ class ValidationTest < ActiveSupport::TestCase
     ) do |model|
       instance = model.new(created_at: Date.today, updated_at: Date.today)
       assert_not instance.valid?
-      assert instance.errors.added?(:created_at, :after)
+      assert instance.errors.added?(:created_at, :after, time: I18n.l(instance.updated_at))
 
       instance = model.new(created_at: (Date.today - 1.day), updated_at: Date.today)
       assert_not instance.valid?
-      assert instance.errors.added?(:created_at, :after)
+      assert instance.errors.added?(:created_at, :after, time: I18n.l(instance.updated_at))
 
       instance = model.new(created_at: (Time.now + 1.day), updated_at: Date.today)
       assert instance.valid?
@@ -149,7 +149,7 @@ class ValidationTest < ActiveSupport::TestCase
     ) do |model|
       instance = model.new(created_at: (Date.today - 1.day), updated_at: Date.today)
       assert_not instance.valid?
-      assert instance.errors.added?(:created_at, :after_or_equal_to)
+      assert instance.errors.added?(:created_at, :after_or_equal_to, time: I18n.l(instance.updated_at))
 
       instance = model.new(created_at: Date.today, updated_at: Date.today)
       assert instance.valid?

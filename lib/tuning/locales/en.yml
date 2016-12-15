@@ -1,6 +1,7 @@
 en:
   errors:
     messages:
+      uncountable: "can't be count"
       too_easy: "is too easy"
       too_many: "must have maximum %{count}"
       too_few: "must have minimum %{count}"

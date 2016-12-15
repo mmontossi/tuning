@@ -9,9 +9,6 @@ class ViewTest < ActionDispatch::IntegrationTest
 
     get '/users.json'
     assert_equal users.to_json, response.body
-
-    get '/users.xml'
-    assert_equal users.to_xml, response.body
   end
 
 end
