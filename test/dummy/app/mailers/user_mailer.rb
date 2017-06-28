@@ -1,4 +1,4 @@
-class UserMailer < ActionMailer::Base
+class UserMailer < ApplicationMailer
 
   def invite(recipient)
     mail to: recipient

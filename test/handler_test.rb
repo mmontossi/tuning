@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ViewTest < ActionDispatch::IntegrationTest
+class HandlerTest < ActionDispatch::IntegrationTest
 
   test 'handler' do
     users = %w(mario juan).map do |name|

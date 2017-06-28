@@ -5,7 +5,7 @@ class MailerTest < ActionMailer::TestCase
   test 'normalization' do
     email = UserMailer.invite('test@mail.com')
     assert_equal(
-      "Hi there,\n\nPlease come check our website!\n\n-- Signature\n",
+      "Hi there,\n\nPlease come check our website!\n\n-- Signature\n\n",
       email.body.to_s
     )
   end

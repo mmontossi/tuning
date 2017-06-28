@@ -37,14 +37,14 @@ class HelperTest < ActionView::TestCase
   test 'extending' do
     assert_equal(
       '<!DOCTYPE html><p>content</p>',
-      render(template: 'layouts/market').gsub(/\n\s+/, '')
+      render(template: 'layouts/site').gsub(/\n\s+/, '')
     )
   end
 
   private
 
   def set_path(path)
-    self.request = ActionDispatch::TestRequest.new
+    self.request = ActionDispatch::TestRequest.new({})
     self.request.path = path
   end
 
