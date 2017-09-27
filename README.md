@@ -149,7 +149,7 @@ I will mainly ensure compatibility to Rails, AWS, PostgreSQL, Redis, Elasticsear
 
 ## Credits
 
-This gem is maintained and funded by [mmontossi](https://github.com/mmontossi).
+This gem is maintained and funded by [museways](https://github.com/museways).
 
 ## License
 
