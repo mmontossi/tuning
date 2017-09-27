@@ -1,7 +1,7 @@
 [![Gem Version](https://badge.fury.io/rb/tuning.svg)](http://badge.fury.io/rb/tuning)
-[![Code Climate](https://codeclimate.com/github/mmontossi/tuning/badges/gpa.svg)](https://codeclimate.com/github/mmontossi/tuning)
-[![Build Status](https://travis-ci.org/mmontossi/tuning.svg)](https://travis-ci.org/mmontossi/tuning)
-[![Dependency Status](https://gemnasium.com/mmontossi/tuning.svg)](https://gemnasium.com/mmontossi/tuning)
+[![Code Climate](https://codeclimate.com/github/museways/tuning/badges/gpa.svg)](https://codeclimate.com/github/museways/tuning)
+[![Build Status](https://travis-ci.org/museways/tuning.svg)](https://travis-ci.org/museways/tuning)
+[![Dependency Status](https://gemnasium.com/museways/tuning.svg)](https://gemnasium.com/museways/tuning)
 
 # Tuning
 
