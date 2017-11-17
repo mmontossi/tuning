@@ -1,5 +1,5 @@
 module Tuning
 
-  VERSION = '5.1.2'
+  VERSION = '5.1.3'
 
 end

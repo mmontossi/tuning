@@ -1,4 +1,3 @@
-require 'tuning/extensions/action_controller/base'
 require 'tuning/extensions/action_mailer/base'
 require 'tuning/extensions/action_view/base'
 require 'tuning/extensions/action_view/handlers'

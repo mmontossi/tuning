@@ -28,31 +28,6 @@ $ bundle
 
 ## Usage
 
-### Controllers
-
-New callbacks before, after, around render are available:
-```ruby
-class ProductsController < ApplicationController
-
-  before_action :set_product
-  before_render :prepare_product
-
-  def edit
-  end
-
-  private
-
-  def set_product
-    @product = Product.find(params[:id])
-  end
-
-  def prepare_product
-    @product.build_picture
-  end
-
-end
-```
-
 ### Mailers
 
 Text email templates will normalize spaces and new lines like html:

@@ -16,14 +16,6 @@ module Tuning
       end
     end
 
-    initializer 'tuning.action_controller' do
-      ActiveSupport.on_load :action_controller do
-        ::ActionController::Base.include(
-          Tuning::Extensions::ActionController::Base
-        )
-      end
-    end
-
     initializer 'tuning.action_mailer' do
       ActiveSupport.on_load :action_mailer do
         ::ActionMailer::Base.include(
