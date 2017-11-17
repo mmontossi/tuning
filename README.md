@@ -69,7 +69,7 @@ New extending method to extend layouts:
 
 ### Template Handlers
 
-Ruby template handlers will automatically call to_json or to_xml:
+Ruby template handlers will automatically call to_json:
 ```ruby
 @users.map do |user|
   user.slice :name
