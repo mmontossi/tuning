@@ -8,12 +8,20 @@ module Tuning
 
           def call(template)
             if template.type.json?
-              <<-STRING
-                output = begin
-                  #{template.source}
-                end
-                output.to_json
-              STRING
+              if File.basename(template.identifier).starts_with?('_')
+                template.source
+              else
+                <<~STRING
+                  output = begin
+                    #{template.source}
+                  end
+                  if output.is_a?(String)
+                    output
+                  else
+                    output.to_json
+                  end
+                STRING
+              end
             else
               template.source
             end
