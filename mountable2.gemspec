@@ -5,11 +5,11 @@ require 'tuning/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'tuning'
+  s.name        = 'attachs'
   s.version     = Tuning::VERSION
   s.authors     = ['mmontossi']
   s.email       = ['hi@museways.com']
-  s.homepage    = 'https://github.com/museways/tuning'
+  s.homepage    = 'https://github.com/museways/attachs'
   s.summary     = 'Tuning for rails.'
   s.description = 'Common tools used in rails extracted into a gem.'
   s.license     = 'MIT'

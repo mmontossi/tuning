@@ -1,0 +1,27 @@
+
+// Breakpoints
+
+$large-screen: 1250px;
+$medium-screen: 1024px;
+$small-screen: 768px;
+$tiny-screen: 480px;
+
+$under-large-screen: "(max-width: #{$large-screen - 1})";
+$until-large-screen: "(max-width: #{$large-screen})";
+$over-large-screen: "(min-width: #{$large-screen + 1})";
+$from-large-screen: "(min-width: #{$large-screen})";
+
+$under-medium-screen: "(max-width: #{$medium-screen - 1})";
+$until-medium-screen: "(max-width: #{$medium-screen})";
+$over-medium-screen: "(min-width: #{$medium-screen + 1})";
+$from-medium-screen: "(min-width: #{$medium-screen})";
+
+$under-small-screen: "(max-width: #{$small-screen - 1})";
+$until-small-screen: "(max-width: #{$small-screen})";
+$over-small-screen: "(min-width: #{$small-screen + 1})";
+$from-small-screen: "(min-width: #{$small-screen})";
+
+$under-tiny-screen: "(max-width: #{$tiny-screen - 1})";
+$until-tiny-screen: "(max-width: #{$tiny-screen})";
+$over-tiny-screen: "(min-width: #{$tiny-screen + 1})";
+$from-tiny-screen: "(min-width: #{$tiny-screen})";

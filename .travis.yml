@@ -9,11 +9,10 @@ script:
 env:
   - RAILS=5.1
 rvm:
-  - 2.3.0
   - 2.4.2
 matrix:
   fast_finish: true
 services:
-  - postgresql
+  postgresql: '9.4'
 notifications:
   email: false
