@@ -5,7 +5,7 @@ require 'tuning/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'attachs'
+  s.name        = 'tuning'
   s.version     = Tuning::VERSION
   s.authors     = ['mmontossi']
   s.email       = ['hi@museways.com']

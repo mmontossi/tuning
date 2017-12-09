@@ -1,5 +1,4 @@
-module Mountable2
+module Tuning
   class Engine < ::Rails::Engine
-    isolate_namespace Mountable2
   end
 end

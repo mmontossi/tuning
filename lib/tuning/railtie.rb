@@ -39,6 +39,13 @@ module Tuning
       end
     end
 
+    initializer 'tuning.sprockets' do |config|
+      assets_path = File.expand_path('../../../app/assets', __FILE__)
+      %w(javascripts stylesheets).each do |directory|
+        Sprockets.append_path "#{assets_path}/#{directory}"
+      end
+    end
+
     initializer 'tuning.i18n' do
       I18n.load_path += Dir[File.expand_path('../locales/*.yml', __FILE__)]
     end
