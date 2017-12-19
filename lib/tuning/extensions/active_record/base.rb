@@ -19,6 +19,28 @@ module Tuning
           end
         end
 
+        module ClassMethods
+
+          def constraints(attribute, values)
+            values.each do |value|
+              scope value, -> { where(attribute => value) }
+              define_method "#{value}?" do
+                send(attribute) == value
+              end
+            end
+            validates_presence_of attribute
+            validates_inclusion_of attribute, in: values
+          end
+
+          def obfuscates_id
+            include Obfuscateable
+          end
+
+          def obfuscateable?
+            false
+          end
+
+        end
       end
     end
   end

@@ -33,11 +33,12 @@ function find() {
 }
 
 function findAll() {
+  let scope, selector;
   if (arguments.length == 2) {
-    var [scope, selector] = arguments;
+    [scope, selector] = arguments;
   } else {
-    var scope = document;
-    var selector = arguments[0];
+    scope = document;
+    selector = arguments[0];
   }
   let list = scope.querySelectorAll(selector);
   return Array.prototype.slice.call(list);
