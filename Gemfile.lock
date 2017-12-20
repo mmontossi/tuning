@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    attachs (5.1.3)
+    tuning (5.1.3)
       rails (~> 5.1)
 
 GEM
@@ -115,9 +115,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  attachs!
   mocha (~> 1.2)
   pg (~> 0.21)
+  tuning!
 
 BUNDLED WITH
    1.16.0
