@@ -3,8 +3,8 @@
 
 const {matches, setData, getData} = Rails;
 
-function meta(name) {
-  let meta = find(`meta[name=${name}]`);
+function getMeta(name) {
+  let meta = find(document.head, `meta[name=${name}]`);
   return meta.getAttribute('content');
 }
 
@@ -18,14 +18,14 @@ function findAll() {
   if (arguments.length == 2) {
     [scope, selector] = arguments;
   } else {
-    scope = document;
+    scope = document.body;
     selector = arguments[0];
   }
   let list = scope.querySelectorAll(selector);
   return Array.prototype.slice.call(list);
 }
 
-function closest(element, selector) {
+function findParent(element, selector) {
   while (element instanceof Element) {
     if (matches(element, selector)) {
       return element;
@@ -64,7 +64,7 @@ function listen() {
   element.addEventListener(type, (event)=>{
     let target = event.target;
     if (selector) {
-      target = closest(target, selector);
+      target = findParent(target, selector);
     }
     if (target && handler.call(target, event) == false) {
       event.preventDefault();
@@ -77,20 +77,22 @@ function load(scope, list) {
   for (let [selector, klass] of list) {
     let elements = findAll(scope, selector);
     for (let element of elements) {
-      new klass(element);
+      let instance = new klass(element);
+      if (typeof instance.load == 'function') {
+        instance.load();
+      }
     }
   }
 }
 
 function observe() {
   listen(document, 'turbolinks:load', ()=>{
-    load(document, arguments);
+    load(document.body, arguments);
     let observer = new MutationObserver((mutations)=>{
       for (let mutation of mutations) {
         load(mutation.target, arguments);
       }
     });
-    let body = find('body');
-    observer.observe(body, { attributes: false, childList: true, subtree: true });
+    observer.observe(document.body, { attributes: false, childList: true, subtree: true });
   });
 }
