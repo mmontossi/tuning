@@ -3,6 +3,29 @@
 
 const {matches, setData, getData} = Rails;
 
+const Ajax = {
+
+  get: function(url, successHandler, errorHandler) {
+    Rails.ajax({
+      url: url,
+      type: 'get',
+      success: successHandler,
+      error: errorHandler
+    });
+  },
+
+  post: function(url, data, successHandler, errorHandler) {
+    Rails.ajax({
+      url: url,
+      type: 'post',
+      data: data,
+      success: successHandler,
+      error: errorHandler
+    });
+  }
+
+}
+
 function getMeta(name) {
   let meta = find(document.head, `meta[name=${name}]`);
   return meta.getAttribute('content');
@@ -26,32 +49,14 @@ function findAll() {
 }
 
 function findParent(element, selector) {
-  while (element instanceof Element) {
+  parent = element.parentNode;
+  if (parent instanceof Element) {
     if (matches(element, selector)) {
-      return element;
+      return parent;
     } else {
-      element = element.parentNode;
+      return findParent(parent, selector);
     }
   }
-}
-
-function get(url, successHandler, errorHandler) {
-  Rails.ajax({
-    url: url,
-    type: 'get',
-    success: successHandler,
-    error: errorHandler
-  })
-}
-
-function post(url, data, successHandler, errorHandler) {
-  Rails.ajax({
-    url: url,
-    type: 'post',
-    data: data,
-    success: successHandler,
-    error: errorHandler
-  })
 }
 
 function listen() {
