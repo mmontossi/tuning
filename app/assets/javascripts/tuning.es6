@@ -5,7 +5,7 @@ const {matches, setData, getData} = Rails;
 
 const Ajax = {
 
-  get: function(url, successHandler, errorHandler) {
+  get: (url, successHandler, errorHandler)=>{
     Rails.ajax({
       url: url,
       type: 'get',
@@ -14,7 +14,7 @@ const Ajax = {
     });
   },
 
-  post: function(url, data, successHandler, errorHandler) {
+  post: (url, data, successHandler, errorHandler)=>{
     Rails.ajax({
       url: url,
       type: 'post',
@@ -82,15 +82,12 @@ function load(scope, list) {
   for (let [selector, klass] of list) {
     let elements = findAll(scope, selector);
     for (let element of elements) {
-      let instance = new klass(element);
-      if (typeof instance.load == 'function') {
-        instance.load();
-      }
+      new klass(element);
     }
   }
 }
 
-function observe() {
+function bind() {
   listen(document, 'turbolinks:load', ()=>{
     load(document.body, arguments);
     let observer = new MutationObserver((mutations)=>{
