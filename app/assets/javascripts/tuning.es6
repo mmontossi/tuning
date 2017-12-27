@@ -31,12 +31,12 @@ function getMeta(name) {
   return meta.getAttribute('content');
 }
 
-function find() {
+function find(...arguments) {
   let elements = findAll(...arguments);
   return (elements.length > 0 ? elements[0] : null);
 }
 
-function findAll() {
+function findAll(...arguments) {
   let scope, selector;
   if (arguments.length == 2) {
     [scope, selector] = arguments;
@@ -59,7 +59,7 @@ function findParent(element, selector) {
   }
 }
 
-function listen() {
+function listen(...arguments) {
   let element, selector, type, handler;
   if (arguments.length == 3) {
     [element, type, handler] = arguments;
@@ -79,7 +79,7 @@ function listen() {
 }
 
 function load(scope, list) {
-  for (let [selector, klass] of list) {
+  for (let [selector, klass] of Object.entries(list)) {
     let elements = findAll(scope, selector);
     for (let element of elements) {
       new klass(element);
@@ -87,12 +87,12 @@ function load(scope, list) {
   }
 }
 
-function bind() {
+function bind(list) {
   listen(document, 'turbolinks:load', ()=>{
-    load(document.body, arguments);
+    load(document.body, list);
     let observer = new MutationObserver((mutations)=>{
       for (let mutation of mutations) {
-        load(mutation.target, arguments);
+        load(mutation.target, list);
       }
     });
     observer.observe(document.body, { attributes: false, childList: true, subtree: true });
