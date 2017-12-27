@@ -49,9 +49,9 @@ function findAll(...arguments) {
 }
 
 function findParent(element, selector) {
-  parent = element.parentNode;
+  let parent = element.parentNode;
   if (parent instanceof Element) {
-    if (matches(element, selector)) {
+    if (matches(parent, selector)) {
       return parent;
     } else {
       return findParent(parent, selector);
