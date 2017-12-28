@@ -69,11 +69,12 @@ function listen() {
     [element, selector, type, handler] = arguments;
   }
   element.addEventListener(type, (event)=>{
-    let target = event.target;
-    if (selector && !matches(target, selector)) {
-      target = findParent(target, selector);
+    let currentTarget = event.target;
+    if (selector && !matches(currentTarget, selector)) {
+      currentTarget = findParent(currentTarget, selector);
     }
-    if (target && handler.call(target, event) == false) {
+    event = Object.defineProperty(event, 'currentTarget', { value: currentTarget });
+    if (currentTarget && handler.call(event.target, event) == false) {
       event.preventDefault();
       event.stopPropagation();
     }
