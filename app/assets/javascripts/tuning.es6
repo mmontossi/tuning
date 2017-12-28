@@ -1,5 +1,7 @@
 //= require rails-ujs
 //= require turbolinks
+//= require_self
+//= require component
 
 const {matches, setData, getData} = Rails;
 
@@ -31,12 +33,12 @@ function getMeta(name) {
   return meta.getAttribute('content');
 }
 
-function find(...arguments) {
+function find() {
   let elements = findAll(...arguments);
   return (elements.length > 0 ? elements[0] : null);
 }
 
-function findAll(...arguments) {
+function findAll() {
   let scope, selector;
   if (arguments.length == 2) {
     [scope, selector] = arguments;
@@ -59,7 +61,7 @@ function findParent(element, selector) {
   }
 }
 
-function listen(...arguments) {
+function listen() {
   let element, selector, type, handler;
   if (arguments.length == 3) {
     [element, type, handler] = arguments;
@@ -68,7 +70,7 @@ function listen(...arguments) {
   }
   element.addEventListener(type, (event)=>{
     let target = event.target;
-    if (selector) {
+    if (selector && !matches(target, selector)) {
       target = findParent(target, selector);
     }
     if (target && handler.call(target, event) == false) {
