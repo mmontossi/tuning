@@ -3,7 +3,7 @@
 //= require_self
 //= require component
 
-const {matches, setData, getData} = Rails;
+const {fire, matches, setData, getData} = Rails;
 
 const Ajax = {
 
