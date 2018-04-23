@@ -21,7 +21,7 @@ module Tuning
 
         module ClassMethods
 
-          def constraints(attribute, values)
+          def constraint(attribute, values)
             values.each do |value|
               scope value, -> { where(attribute => value) }
               define_method "#{value}?" do

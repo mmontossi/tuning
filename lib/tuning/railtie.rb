@@ -14,8 +14,6 @@ module Tuning
     initializer 'tuning.active_record' do
       ActiveSupport.on_load :active_record do
         ::ActiveRecord::Base.include Extensions::ActiveRecord::Base, Validations
-        ::ActiveRecord::Base.singleton_class.prepend Extensions::ActiveRecord::Finders
-        ::ActiveRecord::Relation.prepend Extensions::ActiveRecord::Finders
       end
     end
 

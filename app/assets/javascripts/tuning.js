@@ -6,7 +6,6 @@
 const {fire, matches, setData, getData} = Rails;
 
 const Ajax = {
-
   get: (url, successHandler, errorHandler)=>{
     Rails.ajax({
       url: url,
@@ -15,7 +14,6 @@ const Ajax = {
       error: errorHandler
     });
   },
-
   post: (url, data, successHandler, errorHandler)=>{
     Rails.ajax({
       url: url,
@@ -25,7 +23,6 @@ const Ajax = {
       error: errorHandler
     });
   }
-
 }
 
 function getMeta(name) {
@@ -98,6 +95,9 @@ function bind(list) {
         load(mutation.target, list);
       }
     });
-    observer.observe(document.body, { attributes: false, childList: true, subtree: true });
+    observer.observe(
+      document.body,
+      { attributes: false, childList: true, subtree: true }
+    );
   });
 }
