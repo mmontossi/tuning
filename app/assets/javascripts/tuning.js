@@ -30,6 +30,30 @@ function getMeta(name) {
   return meta.getAttribute('content');
 }
 
+function create(html) {
+  let template = document.createElement('template');
+  template.innerHTML = html.trim();
+  return template.content.firstChild;
+}
+
+function replace(previous, current) {
+  if (typeof current === 'string') {
+    current = create(current);
+  }
+  previous.parentNode.replaceChild(current, previous);
+}
+
+function remove(element) {
+  element.parentNode.removeChild(element);
+}
+
+function append(parent, element) {
+  if (typeof element === 'string') {
+    element = create(element);
+  }
+  parent.appendChild(element);
+}
+
 function find() {
   let elements = findAll(...arguments);
   return (elements.length > 0 ? elements[0] : null);
