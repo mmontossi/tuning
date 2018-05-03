@@ -10,6 +10,7 @@ const Ajax = {
     Rails.ajax({
       url: url,
       type: 'get',
+      beforeSend: beforeSend,
       success: successHandler,
       error: errorHandler
     });
@@ -19,10 +20,15 @@ const Ajax = {
       url: url,
       type: 'post',
       data: data,
+      beforeSend: beforeSend,
       success: successHandler,
       error: errorHandler
     });
   }
+}
+
+function beforeSend(xhr, options) {
+  return true;
 }
 
 function getMeta(name) {
