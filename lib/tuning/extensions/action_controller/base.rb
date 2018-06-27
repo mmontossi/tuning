@@ -30,7 +30,7 @@ module Tuning
 
         %w(notice alert).each do |type|
           define_method type[0] do |key, options={}|
-            t "flash.#{type}.#{key}", options
+            t "flashes.#{type.pluralize}.#{key}", options
           end
         end
 
