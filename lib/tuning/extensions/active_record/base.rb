@@ -32,14 +32,6 @@ module Tuning
             validates_inclusion_of attribute, in: values
           end
 
-          def obfuscates_id
-            include Obfuscateable
-          end
-
-          def obfuscateable?
-            false
-          end
-
         end
       end
     end
