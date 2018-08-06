@@ -11,7 +11,7 @@ module Tuning
               if File.basename(template.identifier).starts_with?('_')
                 template.source
               else
-                <<~STRING
+                <<~CODE
                   output = begin
                     #{template.source}
                   end
@@ -20,7 +20,7 @@ module Tuning
                   else
                     output.to_json
                   end
-                STRING
+                CODE
               end
             else
               template.source

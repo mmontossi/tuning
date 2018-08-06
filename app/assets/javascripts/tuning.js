@@ -1,7 +1,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_self
-//= require component
 
 const {fire, matches, setData, getData} = Rails;
 
@@ -27,6 +26,9 @@ const Ajax = {
   }
 }
 
+var ui = {};
+
+// Rails 5.1.6 hack
 function beforeSend(xhr, options) {
   return true;
 }
@@ -108,8 +110,8 @@ function listen() {
   });
 }
 
-function load(scope, list) {
-  for (let [selector, klass] of Object.entries(list)) {
+function load(scope) {
+  for (let [selector, klass] of Object.entries(ui)) {
     let elements = findAll(scope, selector);
     for (let element of elements) {
       new klass(element);
@@ -117,17 +119,16 @@ function load(scope, list) {
   }
 }
 
-function bind(list) {
-  listen(document, 'turbolinks:load', ()=>{
-    load(document.body, list);
-    let observer = new MutationObserver((mutations)=>{
-      for (let mutation of mutations) {
-        load(mutation.target, list);
-      }
-    });
-    observer.observe(
-      document.body,
-      { attributes: false, childList: true, subtree: true }
-    );
+listen(document, 'turbolinks:load', ()=>{
+  load(document.body);
+  let observer = new MutationObserver((mutations)=>{
+    for (let mutation of mutations) {
+      load(mutation.target);
+    }
   });
-}
+  observer.observe(
+    document.body,
+    { attributes: false, childList: true, subtree: true }
+  );
+});
+

@@ -29,10 +29,7 @@ module Tuning
     end
 
     initializer 'tuning.sprockets' do |config|
-      assets_path = File.expand_path('../../../app/assets', __FILE__)
-      %w(javascripts stylesheets).each do |directory|
-        Sprockets.append_path "#{assets_path}/#{directory}"
-      end
+      Sprockets.append_path File.expand_path('../../../app/assets/javascripts', __FILE__)
     end
 
     initializer 'tuning.i18n' do
