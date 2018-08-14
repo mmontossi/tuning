@@ -102,7 +102,7 @@ function listen() {
     if (selector && !matches(currentTarget, selector)) {
       currentTarget = findParent(currentTarget, selector);
     }
-    event = Object.defineProperty(event, 'currentTarget', { value: currentTarget });
+    event = Object.defineProperty(event, 'currentTarget', { value: currentTarget, configurable: true });
     if (currentTarget && handler.call(event.target, event) == false) {
       event.preventDefault();
       event.stopPropagation();
