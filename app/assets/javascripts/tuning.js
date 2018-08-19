@@ -97,7 +97,9 @@ function listen() {
   } else {
     [elements, selector, type, handler] = arguments;
   }
-  if (elements.constructor != Array) {
+  if (HTMLCollection.prototype.isPrototypeOf(elements)) {
+    elements = Array.prototype.slice.call(elements);
+  } else {
     elements = [elements];
   }
   for (let element of elements) {
@@ -105,8 +107,8 @@ function listen() {
       let currentTarget = event.target;
       if (selector && !matches(currentTarget, selector)) {
         currentTarget = findParent(currentTarget, selector);
+        event = Object.defineProperty(event, 'currentTarget', { value: currentTarget, configurable: true });
       }
-      event = Object.defineProperty(event, 'currentTarget', { value: currentTarget, configurable: true });
       if (currentTarget && handler.call(event.target, event) == false) {
         event.preventDefault();
         event.stopPropagation();
