@@ -26,7 +26,7 @@ const Ajax = {
   }
 }
 
-var ui = {};
+var binds = {};
 
 // Rails 5.1.6 hack
 function beforeSend(xhr, options) {
@@ -111,7 +111,7 @@ function listen() {
 }
 
 function load(scope) {
-  for (let [selector, klass] of Object.entries(ui)) {
+  for (let [selector, klass] of Object.entries(binds)) {
     let elements = findAll(scope, selector);
     for (let element of elements) {
       new klass(element);
