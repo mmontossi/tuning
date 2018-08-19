@@ -91,23 +91,28 @@ function findParent(element, selector) {
 }
 
 function listen() {
-  let element, selector, type, handler;
+  let elements, selector, type, handler;
   if (arguments.length == 3) {
-    [element, type, handler] = arguments;
+    [elements, type, handler] = arguments;
   } else {
-    [element, selector, type, handler] = arguments;
+    [elements, selector, type, handler] = arguments;
   }
-  element.addEventListener(type, (event)=>{
-    let currentTarget = event.target;
-    if (selector && !matches(currentTarget, selector)) {
-      currentTarget = findParent(currentTarget, selector);
-    }
-    event = Object.defineProperty(event, 'currentTarget', { value: currentTarget, configurable: true });
-    if (currentTarget && handler.call(event.target, event) == false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-  });
+  if (elements.constructor != Array) {
+    elements = [elements];
+  }
+  for (let element of elements) {
+    element.addEventListener(type, (event)=>{
+      let currentTarget = event.target;
+      if (selector && !matches(currentTarget, selector)) {
+        currentTarget = findParent(currentTarget, selector);
+      }
+      event = Object.defineProperty(event, 'currentTarget', { value: currentTarget, configurable: true });
+      if (currentTarget && handler.call(event.target, event) == false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+  }
 }
 
 function load(scope) {
