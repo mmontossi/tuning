@@ -2,31 +2,64 @@
 //= require turbolinks
 //= require_self
 
-const {fire, matches, setData, getData} = Rails;
+const {fire, matches} = Rails;
 
-const Ajax = {
-  get: (url, successHandler, errorHandler)=>{
-    Rails.ajax({
-      url: url,
-      type: 'get',
-      beforeSend: beforeSend,
-      success: successHandler,
-      error: errorHandler
-    });
-  },
-  post: (url, data, successHandler, errorHandler)=>{
-    Rails.ajax({
-      url: url,
-      type: 'post',
-      data: data,
-      beforeSend: beforeSend,
-      success: successHandler,
-      error: errorHandler
-    });
-  }
+var views = {};
+var binds = {};
+
+function get() {
+  let args = castArray(arguments);
+  args.unshift('get');
+  request(...args);
 }
 
-var binds = {};
+function post() {
+  let args = castArray(arguments);
+  args.unshift('post');
+  request(...args);
+}
+
+function castArray(object) {
+  return Array.prototype.slice.call(object);
+}
+
+function request() {
+  let type, url, data, successHandler, errorHandler;
+  let options = { beforeSend: beforeSend }
+  if (typeof arguments[2] == 'object') {
+    [type, url, data, successHandler, errorHandler] = arguments;
+  } else {
+    [type, url, successHandler, errorHandler] = arguments;
+  }
+  options.type = type;
+  options.url = url;
+  options.success = successHandler;
+  options.error = errorHandler;
+  if (type == 'get' && data) {
+    options.url += '?';
+    let params = [];
+    for (let key in data) {
+      let value = escape(data[key]);
+      let param = (key+'='+value);
+      params.push(param);
+    }
+    options.url += params.join('&');
+  } else {
+    options.data = data;
+  }
+  Rails.ajax(options);
+}
+
+function render(name, options) {
+  let output = views[name];
+  for (let key in options) {
+    let pattern = ('#{'+key+'}');
+    let regex = new RegExp(pattern, 'g');
+    let value = options[key];
+    output = output.replace(regex, value);
+  }
+  return output;
+}
 
 // Rails 5.1.6 hack
 function beforeSend(xhr, options) {
@@ -108,7 +141,11 @@ function listen() {
       if (selector && !matches(currentTarget, selector)) {
         currentTarget = findParent(currentTarget, selector);
       }
-      event = Object.defineProperty(event, 'currentTarget', { value: currentTarget, configurable: true });
+      event = Object.defineProperty(
+        event,
+        'currentTarget',
+        { value: currentTarget, configurable: true }
+      );
       if (currentTarget && handler.call(event.target, event) == false) {
         event.preventDefault();
         event.stopPropagation();
