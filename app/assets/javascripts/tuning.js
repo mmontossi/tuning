@@ -142,20 +142,25 @@ function listen() {
   }
 }
 
-function load(scope) {
-  for (let [selector, klass] of Object.entries(binds)) {
-    let elements = findAll(scope, selector);
-    for (let element of elements) {
-      new klass(element);
+function load(elements) {
+  for (let element of elements) {
+    for (let [selector, klass] of Object.entries(binds)) {
+      if (element.matches(selector)) {
+        new klass(element);
+      }
+      let children = findAll(element, selector);
+      for (let child of children) {
+        new klass(child);
+      }
     }
   }
 }
 
 listen(document, 'turbolinks:load', ()=>{
-  load(document.body);
+  load([document.body]);
   let observer = new MutationObserver((mutations)=>{
     for (let mutation of mutations) {
-      load(mutation.target);
+      load(mutation.addedNodes);
     }
   });
   observer.observe(
