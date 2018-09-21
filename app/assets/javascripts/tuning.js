@@ -26,7 +26,7 @@ function ajax(options) {
     options.url += '?';
     let params = [];
     for (let key in options.data) {
-      let value = escape(data[key]);
+      let value = escape(options.data[key]);
       let param = (key+'='+value);
       params.push(param);
     }
