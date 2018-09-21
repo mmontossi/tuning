@@ -7,47 +7,40 @@ const {fire, matches} = Rails;
 var views = {};
 var binds = {};
 
-function get() {
-  let args = castArray(arguments);
-  args.unshift('get');
-  request(...args);
+function get(options) {
+  options.type = 'get';
+  ajax(options);
 }
 
-function post() {
-  let args = castArray(arguments);
-  args.unshift('post');
-  request(...args);
+function post(options) {
+   options.type = 'post';
+  ajax(options);
 }
 
-function castArray(object) {
-  return Array.prototype.slice.call(object);
-}
-
-function request() {
-  let type, url, data, successHandler, errorHandler;
-  let options = { beforeSend: beforeSend }
-  if (typeof arguments[2] == 'object') {
-    [type, url, data, successHandler, errorHandler] = arguments;
-  } else {
-    [type, url, successHandler, errorHandler] = arguments;
-  }
-  options.type = type;
-  options.url = url;
-  options.success = successHandler;
-  options.error = errorHandler;
-  if (type == 'get' && data) {
+function ajax(options) {
+  // Rails 5.1.6 hack
+  options.beforeSend = ()=>{ return true; };
+  options.renameProperty('successHandler', 'success');
+  options.renameProperty('errorHandler', 'error');
+  if (options.type == 'get' && options.data) {
     options.url += '?';
     let params = [];
-    for (let key in data) {
+    for (let key in options.data) {
       let value = escape(data[key]);
       let param = (key+'='+value);
       params.push(param);
     }
     options.url += params.join('&');
-  } else {
-    options.data = data;
   }
   Rails.ajax(options);
+}
+
+Object.prototype.renameProperty = function(oldName, newName) {
+  if (oldName != newName && this.hasOwnProperty(oldName)) {
+    this[newName] = this[oldName];
+    delete this[oldName];
+  }
+  return this;
 }
 
 function render(name, options) {
@@ -59,11 +52,6 @@ function render(name, options) {
     output = output.replace(regex, value);
   }
   return output;
-}
-
-// Rails 5.1.6 hack
-function beforeSend(xhr, options) {
-  return true;
 }
 
 function getMeta(name) {
